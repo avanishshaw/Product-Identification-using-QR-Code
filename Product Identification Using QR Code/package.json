@@ -1,5 +1,5 @@
 {
-  "name": "fake-product-identification",
+  "name": "product-identification-using-qr-code",
   "version": "1.0.0",
   "description": "project on blockchain",
   "main": "index.js",
