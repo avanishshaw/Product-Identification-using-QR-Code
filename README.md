@@ -1,56 +1,128 @@
-# Product-Identifier-using-QR-Code
+# 📦 Product Identifier Using QR Code
 
-A blockchain-based system designed to detect counterfeit products and ensure the identification of original goods. This project leverages blockchain technology and QR codes to help consumers and manufacturers verify the authenticity of products in real-time.
+A simple, clean product verification system using **Node.js**, **Express**, **MongoDB**, and **QR Codes**.  
+Manufacturers can add products with unique QR codes, and consumers can verify the authenticity of a product by scanning the QR code.
 
-#Abstract
-The manufacturing and marketing of counterfeit products pose serious financial, health, and safety risks to consumers. These activities also cause economic harm to original manufacturers, leading to revenue loss, product defamation, and increased expenses in fighting counterfeits. This project proposes a solution to combat these issues using blockchain technology, ensuring that consumers no longer need to rely solely on merchants to verify the authenticity of products.
+---
 
-By storing product information in the blockchain and comparing QR codes on the product, the system can instantly verify if a product is genuine or counterfeit. If counterfeit products are detected, both the customer and the manufacturer are notified.
+## 📁 Project Structure
 
-#Features
-Store Product Information: Product details are stored in the blockchain as blocks.
-Scan QR Code: Customers can scan the QR code found on products.
-Compare Codes: The customer's scanned code is compared with the manufacturer's code in the blockchain.
-Notify Customer: If the codes match, the customer is notified that the product is authentic. If they don't match, the customer is alerted about the counterfeit product.
-Notify Manufacturer: In the case of counterfeit products, the customer's location is accessed, and the manufacturer is informed of the counterfeit detection.
-Technologies Used
-Blockchain Platforms: Ethereum, Hyperledger Fabric
-QR Code Technology: Zxing, ZXing JavaSE
-Mobile App Development: React Native, Swift, Kotlin
-Data Storage: MySQL, PostgreSQL, MongoDB, Cloud Storage
-Security: Cryptography libraries, hashing algorithms
-Web Development: HTML, CSS, JavaScript, frontend frameworks
-Integration: REST or GraphQL APIs
+Product Identifier/ ├── backend/ │ ├── server.js │ ├── models/ │ ├── routes/ │ └── package.json ├── frontend/ │ ├── index.html │ ├── addProduct.html │ ├── verifyProduct.html │ └── (other assets) ├── README.md └── (other files)
 
-#Setup/Installation
-To run this project locally, follow these steps:
+yaml
+Copy
+Edit
 
-Development Environment: Use an IDE like Visual Studio Code or IntelliJ IDEA.
-Node.js and npm (or yarn): Ensure that you have Node.js and npm (or yarn) installed.
-Blockchain Network: Set up an Ethereum or Hyperledger Fabric blockchain network.
-QR Code Scanner: You can use a built-in smartphone camera for scanning QR codes.
-Mobile App: If using the mobile app, build it using React Native, Swift, or Kotlin.
-Data Storage: Set up a database using MySQL, PostgreSQL, or MongoDB, or configure cloud storage for data.
-Security: Use cryptography libraries and hashing algorithms for data security.
-Web Development: Frontend should be developed using HTML, CSS, JavaScript, and appropriate frameworks.
-Integration: Connect the system using REST or GraphQL APIs as required.
-How It Works
-Scan: The customer scans the product's QR code using the mobile app or built-in smartphone camera.
-Verify: The system retrieves the product's information stored in the blockchain and compares the QR code scanned with the original manufacturer's data.
-Notify: If the product is genuine, the customer receives confirmation. If counterfeit, the customer is alerted, and the manufacturer is notified with the location of the customer.
-Screenshots
+---
 
-Demo/Live Link
-GitHub: Product Identifier using QR Code
+## 🚀 How to Run This Project
 
-Contributing
-This project is open to contributions. Feel free to fork the repository and submit pull requests for improvements or additional features.
+> 👉 **Important:**  
+> Make sure **MongoDB** is installed and running locally.
 
-License
-This project is licensed under the MIT License.
+---
 
-Contact
-For any questions or to explore more of my work, you can reach me at:
+### ✅ Step 1: Set up the Backend
+
+1. Open your terminal  
+2. Navigate to the backend folder:
+   ```bash
+   cd "Product Identifier/backend"
+Install dependencies:
+
+bash
+Copy
+Edit
+npm install
+Start MongoDB server (if not running):
+
+bash
+Copy
+Edit
+mongod
+In a new terminal, start the backend server:
+
+bash
+Copy
+Edit
+nodemon server.js
+If successful, it should log:
+
+arduino
+Copy
+Edit
+Server running on http://localhost:5000
+MongoDB connected
+✅ Step 2: Test the API using Postman
+Endpoints:
+
+Add Product:
+POST http://localhost:5000/api/products/add
+Body (JSON):
+
+json
+Copy
+Edit
+{
+  "productId": "12345",
+  "productName": "Sample Product",
+  "manufacturer": "Avanish Industries"
+}
+Verify Product:
+POST http://localhost:5000/api/products/verify
+Body (JSON):
+
+json
+Copy
+Edit
+{
+  "productId": "12345"
+}
+✅ If successful — it returns product details or verification result.
+
+✅ Step 3: Run the Frontend
+Open the frontend folder
+
+Open index.html, addProduct.html, and verifyProduct.html in your browser
+
+Make sure your backend server is still running while you use these pages.
+
+✨ Features
+Product Addition by Manufacturer
+
+QR Code Generation using External API
+
+Product Verification by Consumer
+
+Real-time QR Code Scanning
+
+Secure MongoDB Database Storage
+
+Clean, modular backend structure
+
+🌱 Future Improvements (if someone wants to use it)
+✅ Deploy backend on Render/Heroku
+
+✅ Use MongoDB Atlas for cloud database
+
+✅ Add user authentication for manufacturers
+
+✅ Track purchase history
+
+✅ Add QR Code scanning using webcam
+
+✅ Add a React/Vue frontend
+
+✅ Generate downloadable PDF certificates for verified products
+
+📌 Prerequisites
+Node.js
+
+MongoDB
+
+Postman (for API testing)
+
+Web browser
 
 GitHub: avanish_shaw
 Social Media: avanish_shaw
