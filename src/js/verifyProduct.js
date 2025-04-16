@@ -8,7 +8,7 @@ document.getElementById("register").addEventListener("click", async () => {
     }
   
     try {
-      const response = await fetch(`http://localhost:5000/api/products/verify/${qrCode}`);
+      const response = await fetch(`https://product-identification-using-qr-code.onrender.com/api/products/verify/${qrCode}`);
       const data = await response.json();
   
       const logTable = document.getElementById("logdata");
