@@ -2,20 +2,27 @@ const express = require("express");
 const router = express.Router();
 const Product = require("../models/Product");
 
-// GET /api/products/verify/:qrCode
-router.get("/verify/:qrCode", async (req, res) => {
+// Add product route
+router.post('/add', async (req, res) => {
   try {
-    const { qrCode } = req.params;
-    const product = await Product.findOne({ qrCodeData: qrCode });
+    const product = new Product(req.body);
+    await product.save();
+    res.status(201).json({ success: true, data: product });
+  } catch (error) {
+    res.status(400).json({ success: false, error: error.message });
+  }
+});
 
-    if (!product) {
-      return res.status(404).json({ success: false, message: "Product not found (invalid QR code)" });
-    }
-
-    return res.status(200).json({ success: true, data: product });
-  } catch (err) {
-    return res.status(500).json({ success: false, message: "Server Error", error: err.message });
+// Get product by QR code data route
+router.get("/:qrCodeData", async (req, res) => {
+  try {
+    const product = await Product.findOne({ qrCodeData: req.params.qrCodeData });
+    if (!product) return res.status(404).json({ message: "Product not found" });
+    res.json(product);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
   }
 });
 
 module.exports = router;
+
